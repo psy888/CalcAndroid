@@ -3,9 +3,8 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-
-
-    <color name="red">#f00</color>
-    <color name="green">#0f0</color>
-    <color name="yellow">#FFFE00</color>
+    
+    <color name="btnMain">#D6D6D8</color>
+    <color name="btnOperation">#F89500</color>
+    <color name="background">#000000</color>
 </resources>

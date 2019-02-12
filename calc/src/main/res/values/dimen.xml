@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="btnTextSize">32sp</dimen>
+    <dimen name="secondLineSize">36sp</dimen>
+    <dimen name="mainLineSize">52sp</dimen>
+</resources>
