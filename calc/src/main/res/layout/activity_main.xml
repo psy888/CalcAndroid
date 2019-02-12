@@ -58,7 +58,7 @@
                 android:background="@color/btnMain"
                 android:textColor="@color/background"
                 android:textSize="@dimen/btnTextSize"
-                android:layoKut_marginRight="1dp"/>
+                android:layout_marginRight="1dp"/>
             <Button
                 android:layout_height="match_parent"
                 android:id="@+id/division"
