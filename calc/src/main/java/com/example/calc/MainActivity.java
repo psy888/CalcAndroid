@@ -159,6 +159,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     private void setFirstNum ()
     {
+        if(bufMain.contentEquals(""))
+        {
+            bufMain = mainLine.getText().toString();
+            bufSecond = bufMain + bufSecond;
+        }
         firstNum = Integer.parseInt(bufMain);
         bufMain = "";
         secondLine.setText(bufSecond);
