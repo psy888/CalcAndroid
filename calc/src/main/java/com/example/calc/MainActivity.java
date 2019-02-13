@@ -12,8 +12,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView secondLine;
     private String bufMain = "";
     private String bufSecond = "";
+    private int operation;
     private int firstNum;
     private int secondNum;
+
+    private static final int SUM = 0;
+    private static final int MINUS = 1;
+    private static final int MULTIPLY = 2;
+    private static final int DIVISION = 3;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,8 +63,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button plus = findViewById(R.id.plus);
         plus.setOnClickListener(this);
 
+        Button minus = findViewById(R.id.minus);
+        minus.setOnClickListener(this);
+
+        Button multiply = findViewById(R.id.multiply);
+        multiply.setOnClickListener(this);
+
+        Button division = findViewById(R.id.division);
+        division.setOnClickListener(this);
+
         Button clear = findViewById(R.id.clear);
         clear.setOnClickListener(this);
+
+        Button result = findViewById(R.id.result);
+        result.setOnClickListener(this);
 
         }
 
@@ -114,11 +133,71 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.plus:
                 bufSecond+=bufMain+"+";
-                firstNum = Integer.parseInt(bufMain);
-                bufMain = "";
-                secondLine.setText(bufSecond);
-                mainLine.setText(bufMain);
+                operation = 0;
+                setFirstNum ();
+                break;
+            case R.id.minus:
+                bufSecond+=bufMain+"-";
+                operation = 1;
+                setFirstNum ();
+                break;
+            case R.id.multiply:
+                bufSecond+=bufMain+"*";
+                operation = 2;
+                setFirstNum ();
+                break;
+            case R.id.division:
+                bufSecond+=bufMain+"/";
+                operation = 3;
+                setFirstNum ();
+                break;
+            case R.id.result:
+                bufSecond+=bufMain+"=";
+                checkResult();
                 break;
         }
     }
+    private void setFirstNum ()
+    {
+        firstNum = Integer.parseInt(bufMain);
+        bufMain = "";
+        secondLine.setText(bufSecond);
+        mainLine.setText(bufMain);
+    }
+    private void checkResult()
+    {
+        if(!bufMain.contentEquals(""))
+        {
+            secondNum = Integer.parseInt(bufMain);
+            bufMain = "";
+            secondLine.setText(bufSecond);
+            switch (operation)
+            {
+                case SUM:
+                    mainLine.setText(""+(firstNum+secondNum));
+                    bufSecond = "";
+                    break;
+                case MINUS:
+                    mainLine.setText(""+(firstNum-secondNum));
+                    bufSecond = "";
+                    break;
+                case MULTIPLY:
+                    mainLine.setText(""+(firstNum*secondNum));
+                    bufSecond = "";
+                    break;
+                case DIVISION:
+                    if(secondNum!=0)
+                    {
+                        mainLine.setText(""+(firstNum/secondNum));
+                    }
+                    else
+                    {
+                        mainLine.setText("На ноль делить нельзя");
+                    }
+                    bufSecond = "";
+                    break;
+            }
+        }
+    }
+
 }
