@@ -18,6 +18,6 @@
     <string name="multiplication">x</string>
     <string name="clear">C</string>
     <string name="changeSign">+/-</string>
-    <string name="procent">%</string>
+    <string name="allClear">AC</string>
 
 </resources>

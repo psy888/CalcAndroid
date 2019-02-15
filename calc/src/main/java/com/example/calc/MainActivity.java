@@ -76,6 +76,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button clear = findViewById(R.id.clear);
         clear.setOnClickListener(this);
 
+        Button allClear = findViewById(R.id.allClear);
+        allClear.setOnClickListener(this);
+
+        Button changeSign = findViewById(R.id.changeSign);
+        changeSign.setOnClickListener(this);
+
         Button result = findViewById(R.id.result);
         result.setOnClickListener(this);
 
@@ -133,6 +139,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mainLine.setText("");
 
                 break;
+            case R.id.allClear:
+                aClear();
+                mainLine.setText(bufMain);
+                secondLine.setText(bufSecond);
+                break;
             case R.id.plus:
                 bufSecond+=bufMain+"+";
                 doMath();
@@ -160,6 +171,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 operation = 3;
                 updateUI();
 //                setFirstNum ();
+                break;
+            case R.id.changeSign:
+                if(!bufMain.isEmpty()) {
+                    if (!bufMain.contains("-")) {
+                        bufMain = "-" + bufMain;
+                        mainLine.setText(bufMain);
+                    } else {
+                        bufMain = bufMain.substring(1);
+                        mainLine.setText(bufMain);
+                    }
+                }
                 break;
             case R.id.result:
                 bufSecond+=bufMain+"=";
@@ -246,6 +268,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 result = Integer.parseInt(bufMain);
             }
         }
+
     }
 
     private void updateUI()
@@ -260,13 +283,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bufMain = "";
         bufSecond = "";
         mainLine.setText(""+result);
+        bufSecond=""+result;
     }
     private void clear()
     {
         bufMain="";
+//        result = 0;
+//        operation = -1;
+    }
+    private void aClear()
+    {
+        bufMain="";
+        bufSecond = "";
         result = 0;
         operation = -1;
     }
+    /*
     private void checkResult()
     {
         if(!bufMain.contentEquals(""))
@@ -303,4 +335,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
+    */
 }

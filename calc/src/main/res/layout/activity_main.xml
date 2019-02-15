@@ -37,6 +37,14 @@
             android:layout_weight="1">
             <Button
                 android:layout_height="match_parent"
+                android:id="@+id/allClear"
+                android:text="@string/allClear"
+                android:background="@color/btnMain"
+                android:textColor="@color/background"
+                android:textSize="@dimen/btnTextSize"
+                android:layout_marginRight="1dp"/>
+            <Button
+                android:layout_height="match_parent"
                 android:id="@+id/clear"
                 android:text="@string/clear"
                 android:background="@color/btnMain"
@@ -47,14 +55,6 @@
                 android:layout_height="match_parent"
                 android:id="@+id/changeSign"
                 android:text="@string/changeSign"
-                android:background="@color/btnMain"
-                android:textColor="@color/background"
-                android:textSize="@dimen/btnTextSize"
-                android:layout_marginRight="1dp"/>
-            <Button
-                android:layout_height="match_parent"
-                android:id="@+id/pocent"
-                android:text="@string/procent"
                 android:background="@color/btnMain"
                 android:textColor="@color/background"
                 android:textSize="@dimen/btnTextSize"
